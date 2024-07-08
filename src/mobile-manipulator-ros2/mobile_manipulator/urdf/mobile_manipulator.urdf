@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="mobile_manipulator">
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.0 0.0 0.8 1.0"/>
+  </material>
+  <material name="green">
+    <color rgba="0.0 0.8 0.0 1.0"/>
+  </material>
+  <material name="grey">
+    <color rgba="0.2 0.2 0.2 1.0"/>
+  </material>
+  <material name="orange">
+    <color rgba="1.0 0.423529411765 0.0392156862745 1.0"/>
+  </material>
+  <material name="brown">
+    <color rgba="0.870588235294 0.811764705882 0.764705882353 1.0"/>
+  </material>
+  <material name="red">
+    <color rgba="0.8 0.0 0.0 1.0"/>
+  </material>
+  <material name="white">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+  <material name="Beige">
+    <color rgba="1.0 0.784 0.5765 1.0"/>
+  </material>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0341950059245064 -0.000488202669057205 -0.023484876962622"
+        rpy="0 0 0" />
+      <mass
+        value="40.9486107084908" />
+      <inertia
+        ixx="0.614175745536508"
+        ixy="-0.00029161014956335"
+        ixz="0.00349696614970323"
+        iyy="0.585385929134616"
+        iyz="0.00393630741003468"
+        izz="1.14116882796746" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="velodyne">
+    <inertial>
+      <origin
+        xyz="-0.000287261593383881 -1.71282553980455E-06 -0.00210508552484484"
+        rpy="0 0 0" />
+      <mass
+        value="1.59564547671227" />
+      <inertia
+        ixx="0.00173425514736997"
+        ixy="9.47838989708527E-10"
+        ixz="-1.3496082303702E-05"
+        iyy="0.00176389158236456"
+        iyz="-9.004773487459E-08"
+        izz="0.00210570589727052" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/velodyne.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/velodyne.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="velodyne_joint"
+    type="fixed">
+    <origin
+      xyz="-0.11 0 0.2388"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="velodyne" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gimbal_base">
+    <inertial>
+      <origin
+        xyz="0 -2.77555756156289E-17 -0.072001781384442"
+        rpy="0 0 0" />
+      <mass
+        value="0.509564966854981" />
+      <inertia
+        ixx="0.00460691407459133"
+        ixy="4.15635367174835E-19"
+        ixz="-1.18148517933091E-18"
+        iyy="0.00461472657459133"
+        iyz="3.67390006628001E-19"
+        izz="0.000946833044910318" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/gimbal_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/gimbal_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gimbal_base_joint"
+    type="fixed">
+    <origin
+      xyz="-0.225 -0.2 0.83"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gimbal_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gimbal_yaw">
+    <inertial>
+      <origin
+        xyz="2.50753308603247E-05 0 0.00389164940243814"
+        rpy="0 0 0" />
+      <mass
+        value="0.0783038684288936" />
+      <inertia
+        ixx="3.25784849998099E-05"
+        ixy="-3.24641951102788E-22"
+        ixz="-1.19937183517807E-08"
+        iyy="3.5498566498157E-05"
+        iyz="-2.46038653698381E-22"
+        izz="5.90679201142496E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/gimbal_yaw.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/gimbal_yaw.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gimbal_yaw_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.07"
+      rpy="0 0 0" />
+    <parent
+      link="gimbal_base" />
+    <child
+      link="gimbal_yaw" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="1"
+      velocity="10" />
+  </joint>
+  <link
+    name="gimbal_pitch">
+    <inertial>
+      <origin
+        xyz="0.0230991288595745 -2.77555756156289E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00629053213386462" />
+      <inertia
+        ixx="3.42802231918139E-06"
+        ixy="2.36055740704576E-21"
+        ixz="-8.87662821812963E-23"
+        iyy="1.30341273174401E-06"
+        iyz="8.73092983177933E-23"
+        izz="4.4594233809342E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/gimbal_pitch.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/gimbal_pitch.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gimbal_pitch_joint"
+    type="revolute">
+    <origin
+      xyz="0.01 0 0.01"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="gimbal_yaw" />
+    <child
+      link="gimbal_pitch" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="1"
+      velocity="10" />
+  </joint>
+  <link
+    name="realsense">
+    <inertial>
+      <origin
+        xyz="-0.00148582713460665 -0.00537331155862492 0.0114430980390411"
+        rpy="0 0 0" />
+      <mass
+        value="0.0346937941885999" />
+      <inertia
+        ixx="2.24677046023847E-05"
+        ixy="2.74694997947627E-07"
+        ixz="7.68563645568261E-11"
+        iyy="1.45075356803183E-06"
+        iyz="1.67781904213168E-09"
+        izz="2.14371832325338E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/realsense.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/realsense.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="realsense_joint"
+    type="fixed">
+    <origin
+      xyz="0.037 0 0"
+      rpy="0 1.5708 0" />
+    <parent
+      link="gimbal_pitch" />
+    <child
+      link="realsense" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link name="xmate3_base">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/xmate3_base.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <mass value="5.48267"/>
+      <inertia ixx="0.056" ixy="0" ixz="0" iyy="0.066" iyz="0" izz="0.035"/>
+      <origin rpy="0 0 0" xyz="-0.0183 0 0.067"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/xmate3_base.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    </collision>
+  </link>
+  <joint
+    name="xmate3_base_joint"
+    type="fixed">
+    <origin
+      xyz="0.15 0.00023421 0.02"
+      rpy="0 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="xmate3_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <joint name="joint1" type="revolute">
+    <parent link="xmate3_base"/>
+    <child link="xmate3_link1"/>
+    <limit effort="300" lower="-3.0527" upper="3.0527" velocity="10"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <!--link 1-->
+  <link name="xmate3_link1">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/xmate3_link1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <mass value="3.37289"/>
+      <inertia ixx="0.314" ixy="0" ixz="0" iyy="0.310" iyz="0" izz="0.01"/>
+      <origin rpy="0 0 0" xyz="0 -0.023 0.295"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/xmate3_link1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+  </link>
+  <joint name="joint2" type="revolute">
+    <parent link="xmate3_link1"/>
+    <child link="xmate3_link2"/>
+    <limit effort="300" lower="-2.0933" upper="2.0933" velocity="10"/>
+    <axis xyz="0 1 0"/>
+    <origin rpy="0 0 0" xyz="0 0 0.34260487"/>
+  </joint>
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <!--link 2-->
+  <link name="xmate3_link2">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/xmate3_link2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <mass value="3.74765"/>
+      <inertia ixx="0.074" ixy="0" ixz="0" iyy="0.067" iyz="0" izz="0.014"/>
+      <origin rpy="0 0 0" xyz="0 0.032 0.095"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/xmate3_link2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+    </collision>
+  </link>
+  <joint name="joint3" type="revolute">
+    <parent link="xmate3_link2"/>
+    <child link="xmate3_link3"/>
+    <limit effort="300" lower="-3.0527" upper="3.0527" velocity="10"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0.23743878"/>
+  </joint>
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <!--${nameofManipulator}_link 3-->
+  <link name="xmate3_link3">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/xmate3_link3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.15549959"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <mass value="3.38216"/>
+      <inertia ixx="0.028" ixy="0" ixz="0" iyy="0.025" iyz="0" izz="0.01"/>
+      <origin rpy="0 0 0" xyz="0 -0.023 -0.048"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/xmate3_link3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.15549959"/>
+    </collision>
+  </link>
+  <joint name="joint4" type="revolute">
+    <parent link="xmate3_link3"/>
+    <child link="xmate3_link4"/>
+   <limit effort="300" lower="-2.0933" upper="2.0933" velocity="10"/>
+<!--     lower="-2.79" upper="2.79" -->
+    <axis xyz="0 1 0"/>
+<!--     <origin rpy="0 0 0" xyz="0.585 0.0 0.035"/> -->
+    <origin rpy="0 0 0" xyz="0 0 0.15549959"/>
+  </joint>
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint4">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <!--link 4-->
+  <link name="xmate3_link4">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/xmate3_link4.stl" scale=".001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <mass value="3.21031"/>
+      <inertia ixx="0.027" ixy="0" ixz="0" iyy="0.024" iyz="0" izz="0.007"/>
+      <origin rpy="0 0 0" xyz="0 0.037 0.075"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/xmate3_link4.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    </collision>
+  </link>
+  <joint name="joint5" type="revolute">
+    <parent link="xmate3_link4"/>
+    <child link="xmate3_link5"/>
+    <limit effort="300" lower="-3.0527" upper="3.0527" velocity="10"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0.22044633"/>
+  </joint>
+  <transmission name="tran5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint5">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <!--link 5-->
+  <link name="xmate3_link5">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/xmate3_link5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.14512568"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <mass value="1.7"/>
+      <inertia ixx="0.022" ixy="0" ixz="0" iyy="0.018" iyz="0" izz="0.0076"/>
+      <origin rpy="0 0 0" xyz="0 -0.025 -0.052"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/xmate3_link5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.14512568"/>
+    </collision>
+  </link>
+  <joint name="joint6" type="revolute">
+    <parent link="xmate3_link5"/>
+    <child link="xmate3_link6"/>
+    <limit effort="300" lower="-2.0933" upper="2.0933" velocity="10"/>
+    <axis xyz="0 1 0"/>
+    <origin xyz="0 0 0.14512568" rpy="0.0 0.0 0.0" />
+  </joint>
+  <transmission name="tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint6">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <!--link 6-->
+  <link name="xmate3_link6">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/xmate3_link6.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <mass value="2.6002"/>
+      <inertia ixx="0.016" ixy="-0.000000" ixz="-0.000000" iyy="0.0156" iyz="-0.000000" izz="0.0042"/>
+      <origin rpy="0 0 0" xyz="0 0.02 0.073"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/xmate3_link6.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    </collision>
+  </link>
+  <joint name="joint7" type="revolute">
+    <parent link="xmate3_link6"/>
+    <child link="xmate3_link7"/>
+    <limit effort="300" lower="-6.283" upper="2.993" velocity="10"/>
+    <axis xyz="0 0 1"/>
+    <origin xyz="0 0 0.25090877" rpy="0.0 0.0 0.0" />
+  </joint>
+  <transmission name="tran7">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint7">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor7">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+<!--link 7-->
+  <link name="xmate3_link7">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/xmate3_link7.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <mass value="1.50517"/>
+      <inertia ixx="0.0037" ixy="0" ixz="0" iyy="0.0021" iyz="0" izz="0.0030"/>
+      <origin rpy="0 0 0" xyz="0 0.023 -0.044"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/xmate3_link7.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0"/>
+    </collision>
+  </link>
+  <link
+    name="robotiq_connector">
+    <inertial>
+      <origin
+        xyz="-0.0011437 0.013539 0.0070148"
+        rpy="0 0 0" />
+      <mass
+        value="0.17371" />
+      <inertia
+        ixx="0.00015634"
+        ixy="-2.6899E-06"
+        ixz="-3.7656E-07"
+        iyy="5.565E-05"
+        iyz="1.4996E-06"
+        izz="0.00020436" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/robotiq_connector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/robotiq_connector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="robotiq_connector_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="xmate3_link7" />
+    <child
+      link="robotiq_connector" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <joint
+    name="robotiq_base_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.014"
+      rpy="0 0 -1.5708" />
+    <parent
+      link="robotiq_connector" />
+    <child
+      link="robotiq_arg2f_base_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="realsense_hand_link">
+    <inertial>
+      <origin
+        xyz="-0.0014858 -0.0053733 0.011443"
+        rpy="0 0 0" />
+      <mass
+        value="0.034694" />
+      <inertia
+        ixx="2.2468E-05"
+        ixy="2.747E-07"
+        ixz="7.6868E-11"
+        iyy="1.4508E-06"
+        iyz="1.6778E-09"
+        izz="2.1437E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/realsense.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manipulator/meshes/realsense.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="realsense_hand_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.0585 0.01318"
+      rpy="-1.5708 -1.5708 0" />
+    <parent
+      link="robotiq_connector" />
+    <child
+      link="realsense_hand_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+    <link name="robotiq_arg2f_base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="8.625E-08 -4.6583E-06 0.03145"/>
+      <mass value="0.22652"/>
+      <inertia ixx="0.00020005" ixy="-4.2442E-10" ixz="-2.9069E-10" iyy="0.00017832" iyz="-3.4402E-08" izz="0.00013478"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/robotiq_arg2f_base_link.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/robotiq_arg2f_base_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_outer_knuckle">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.000200000000003065 0.0199435877845359 0.0292245259211331"/>
+      <mass value="0.00853198276973456"/>
+      <inertia ixx="2.89328108496468E-06" ixy="-1.57935047237397E-19" ixz="-1.93980378593255E-19" iyy="1.86719750325683E-06" iyz="-1.21858577871576E-06" izz="1.21905238907251E-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/robotiq_arg2f_140_outer_knuckle.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/robotiq_arg2f_140_outer_knuckle.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_outer_finger">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00030115855001899 0.0373907951953854 -0.0208027427000385"/>
+      <mass value="0.022614240507152"/>
+      <inertia ixx="1.52518312458174E-05" ixy="9.76583423954399E-10" ixz="-5.43838577022588E-10" iyy="6.17694243867776E-06" iyz="6.78636130740228E-06" izz="1.16494917907219E-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/robotiq_arg2f_140_outer_finger.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/robotiq_arg2f_140_outer_finger.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_inner_finger">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000299999999999317 0.0160078233491243 -0.0136945669206257"/>
+      <mass value="0.0104003125914103"/>
+      <inertia ixx="2.71909453810972E-06" ixy="1.35402465472579E-21" ixz="-7.1817349065269E-22" iyy="7.69100314106116E-07" iyz="6.74715432769696E-07" izz="2.30315190420171E-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/robotiq_arg2f_140_inner_finger.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/robotiq_arg2f_140_inner_finger.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_inner_finger_pad">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.027 0.065 0.0075"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.9 0.9 0.9 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.03 0.07 0.0075"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.9 0.0 0.0 1"/>
+      </material>
+    </collision>
+  </link>
+  <link name="left_inner_knuckle">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000123011831763771 0.0507850843201817 0.00103968640075166"/>
+      <mass value="0.0271177346495152"/>
+      <inertia ixx="2.61910379223783E-05" ixy="-2.43616858946494E-07" ixz="-6.37789906117123E-09" iyy="2.8270243746167E-06" iyz="-5.37200748039765E-07" izz="2.83695868220296E-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/robotiq_arg2f_140_inner_knuckle.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/robotiq_arg2f_140_inner_knuckle.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_outer_knuckle">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.000200000000003065 0.0199435877845359 0.0292245259211331"/>
+      <mass value="0.00853198276973456"/>
+      <inertia ixx="2.89328108496468E-06" ixy="-1.57935047237397E-19" ixz="-1.93980378593255E-19" iyy="1.86719750325683E-06" iyz="-1.21858577871576E-06" izz="1.21905238907251E-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/robotiq_arg2f_140_outer_knuckle.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/robotiq_arg2f_140_outer_knuckle.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_outer_finger">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00030115855001899 0.0373907951953854 -0.0208027427000385"/>
+      <mass value="0.022614240507152"/>
+      <inertia ixx="1.52518312458174E-05" ixy="9.76583423954399E-10" ixz="-5.43838577022588E-10" iyy="6.17694243867776E-06" iyz="6.78636130740228E-06" izz="1.16494917907219E-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/robotiq_arg2f_140_outer_finger.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/robotiq_arg2f_140_outer_finger.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_inner_finger">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000299999999999317 0.0160078233491243 -0.0136945669206257"/>
+      <mass value="0.0104003125914103"/>
+      <inertia ixx="2.71909453810972E-06" ixy="1.35402465472579E-21" ixz="-7.1817349065269E-22" iyy="7.69100314106116E-07" iyz="6.74715432769696E-07" izz="2.30315190420171E-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/robotiq_arg2f_140_inner_finger.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/robotiq_arg2f_140_inner_finger.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_inner_finger_pad">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.027 0.065 0.0075"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.9 0.9 0.9 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.03 0.07 0.0075"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.9 0.0 0.0 1"/>
+      </material>
+    </collision>
+  </link>
+  <link name="right_inner_knuckle">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000123011831763771 0.0507850843201817 0.00103968640075166"/>
+      <mass value="0.0271177346495152"/>
+      <inertia ixx="2.61910379223783E-05" ixy="-2.43616858946494E-07" ixz="-6.37789906117123E-09" iyy="2.8270243746167E-06" iyz="-5.37200748039765E-07" izz="2.83695868220296E-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/visual/robotiq_arg2f_140_inner_knuckle.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mobile_manipulator/meshes/collision/robotiq_arg2f_140_inner_knuckle.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="finger_joint" type="revolute">
+    <origin rpy="2.29579632679 0 0" xyz="0 -0.030601 0.054905"/>
+    <parent link="robotiq_arg2f_base_link"/>
+    <child link="left_outer_knuckle"/>
+    <axis xyz="-1 0 0"/>
+    <limit effort="1000" lower="0" upper="0.7" velocity="2.0"/>
+  </joint>
+  <joint name="left_outer_finger_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.01821998610742 0.0260018192872234"/>
+    <parent link="left_outer_knuckle"/>
+    <child link="left_outer_finger"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+  <joint name="left_inner_knuckle_joint" type="revolute">
+    <origin rpy="2.29579632679 0 0.0" xyz="0 -0.0127 0.06142"/>
+    <parent link="robotiq_arg2f_base_link"/>
+    <child link="left_inner_knuckle"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="-0.8757" upper="0.8757" velocity="2.0"/>
+    <mimic joint="finger_joint" multiplier="-1" offset="0"/>
+  </joint>
+  <joint name="left_inner_finger_joint" type="revolute">
+    <origin rpy="-0.725 0 0" xyz="0 0.0817554015893473 -0.0282203446692936"/>
+    <parent link="left_outer_finger"/>
+    <child link="left_inner_finger"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="-0.8757" upper="0.8757" velocity="2.0"/>
+    <mimic joint="finger_joint" multiplier="1" offset="0"/>
+  </joint>
+  <joint name="left_inner_finger_pad_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0457554015893473 -0.0272203446692936"/>
+    <parent link="left_inner_finger"/>
+    <child link="left_inner_finger_pad"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <joint name="right_outer_knuckle_joint" type="revolute">
+    <origin rpy="2.29579632679 0 3.14159265359" xyz="0 0.030601 0.054905"/>
+    <parent link="robotiq_arg2f_base_link"/>
+    <child link="right_outer_knuckle"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="-0.725" upper="0.725" velocity="2.0"/>
+    <mimic joint="finger_joint" multiplier="-1" offset="0"/>
+  </joint>
+  <joint name="right_outer_finger_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.01821998610742 0.0260018192872234"/>
+    <parent link="right_outer_knuckle"/>
+    <child link="right_outer_finger"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+  <joint name="right_inner_knuckle_joint" type="revolute">
+    <origin rpy="2.29579632679 0 -3.14159265359" xyz="0 0.0127 0.06142"/>
+    <parent link="robotiq_arg2f_base_link"/>
+    <child link="right_inner_knuckle"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="-0.8757" upper="0.8757" velocity="2.0"/>
+    <mimic joint="finger_joint" multiplier="-1" offset="0"/>
+  </joint>
+  <joint name="right_inner_finger_joint" type="revolute">
+    <origin rpy="-0.725 0 0" xyz="0 0.0817554015893473 -0.0282203446692936"/>
+    <parent link="right_outer_finger"/>
+    <child link="right_inner_finger"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="-0.8757" upper="0.8757" velocity="2.0"/>
+    <mimic joint="finger_joint" multiplier="1" offset="0"/>
+  </joint>
+  <joint name="right_inner_finger_pad_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0457554015893473 -0.0272203446692936"/>
+    <parent link="right_inner_finger"/>
+    <child link="right_inner_finger_pad"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <transmission name="finger_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_joint_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>
